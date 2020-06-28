@@ -1,0 +1,44 @@
+ 
+    #burger   {
+        position: absolute;
+        top: 5%;
+        left: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        color: black;
+        width: 2rem;
+        height: 2rem;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 20px;
+        z-index: 10;
+        outline: none;
+}
+  
+#burger:hover {
+  background-color: #96D9FF;
+  cursor: pointer;
+  border-color: #003557;
+  transform: scale(1.2, 1.2);
+}
+
+  #burger div {
+    width: 2rem;
+    height: 0.50rem;
+    border-radius: 10px;
+    background-color:black;
+    transition: all 0.3s linear;
+    position: relative;
+    transform-origin: 1px;
+  }
+
+#burger:active {
+   border-color: #003557;
+  background-color: #FFF;
+}
+#burger:hover div:active {
+   transform: rotate(120deg)  rotate(0);
+}
+
