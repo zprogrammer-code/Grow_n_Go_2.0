@@ -16,17 +16,18 @@ transition: transform 0.3s ease-in-out;
 }
 
 a:hover {
-  background-color: #96D9FF;
+  /* background-color: #96D9FF; */
+  background-image: url(https://images4.alphacoders.com/106/thumb-350-106826.jpg);
   cursor: pointer;
   border-color: #003557;
   transform: scale(1.1, 1.1);
+  border-radius: 20px;
 }
 #flyoutMenu a {
   font-family: 'Cabin', sans-serif;
   font-size: 3rem;
   text-transform: uppercase;
   padding: 30px;
-  color: black;
   font-weight: bold;
   letter-spacing: 0.5rem;
   text-decoration: none;
@@ -42,7 +43,7 @@ a:hover {
   width: 425px;
   /* width: 100vw;
   height: 100vh; */
-  background-color:whitesmoke;
+background-color: black;
   position: fixed;
   top: 0;
   left: 0;

@@ -35,11 +35,11 @@ export default class App extends Component {
     <>
         <div>
           <body>
-          <Header />
+          <Header/>
         <Burger handleMouseDown={this.handleMouseDown}/>
-        <Menu handleMouseDown={this.handleMouseDown}
+        <Menu  handleMouseDown={this.handleMouseDown}
           menuVisibility={this.state.visible}/>
-          <Main />
+          <Main  />
           </body>
         </div>
         </>
