@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import Burger from './Sidebar/Burger';
-import Menu from './Sidebar/Menu';
-import Header from './components/header'
-import Main from './components/main'
+// import Burger from './Sidebar/Burger';
+// import Menu from './Sidebar/Menu';
+// import Header from './components/header';
+// import Main from './components/main';
+import Workout from './workouts/Workout'
 
 
 export default class App extends Component {
@@ -35,11 +36,12 @@ export default class App extends Component {
     <>
         <div>
           <body>
-          <Header/>
+          {/* <Header/>
         <Burger handleMouseDown={this.handleMouseDown}/>
         <Menu  handleMouseDown={this.handleMouseDown}
-          menuVisibility={this.state.visible}/>
-          <Main  />
+          menuVisibility={this.state.visible}/> */}
+          {/* <Main  /> */}
+          <Workout />
           </body>
         </div>
         </>
