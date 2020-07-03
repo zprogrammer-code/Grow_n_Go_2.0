@@ -1,6 +1,7 @@
 
 import React  from 'react';
-import './header.css'
+import './style.css'
+import { Link } from 'react-router-dom'
 
 
 
@@ -10,7 +11,7 @@ function Header() {
     <div id="header">
   <h1 id="title">Grow n Go</h1>
   <div id="search">  
-        <a href="/login"><h3 id="login" > Login</h3></a>
+        <Link to="/signup"><h3 id="login" > Login</h3></Link>
         <form>
          <input type="search" name="q" placeholder="Search query"></input>
          <input type="submit" value="GO"></input>
