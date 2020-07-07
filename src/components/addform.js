@@ -24,7 +24,7 @@ return (
                             Strength Building:  do 3 to 4 sets at your max lifting weight for
                             3-4 repititions. Continue strength Building for 3 to 4 weeks adding
                             weight at a rate your comfortable with.
-                               <div/>
+                               <br/>
                                <br/>
                            Hypertrophy:  This is where you start to lesson the amount of weight 
                            while increasing the amount of reps. you continue to decrease it to

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './style.css'
+import { Link } from 'react-router-dom'
 
 export default class Menu extends Component{
 
@@ -11,26 +12,31 @@ export default class Menu extends Component{
     }
   
   return (
+    <>
     <div id="flyoutMenu"
-    onMouseDown={this.props.handleMouseDown} 
+    onClick={this.props.handleMouseDown} 
     className={visibility}>
-      <a href="/">
+      <Link to="/home">
         <span role="img" aria-label="about us">&#x1f3cb;&#xfe0f;&#x200d;&#x2642;&#xfe0f;</span>
         Home
-      </a>
-      <a href="/">
+      </Link>
+
+      <Link to="/goals">
         <span role="img" aria-label="price">&#x1f945;</span>
         Goals
-        </a>
-      <a href="/">
+        </Link>
+
+      <Link to="/routines">
         <span role="img" aria-label="contact">&#x231a;</span>
         routines
-        </a>
-      <a href="/">
+        </Link>
+
+      <Link to="/contact">
         <span role="img" aria-label="contact">&#x1f4e9;</span>
         Contact
-        </a>
+        </Link>
   </div>
+  </>
   )
 }
 }

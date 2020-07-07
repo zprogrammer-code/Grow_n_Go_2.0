@@ -10,7 +10,7 @@ export default class Workout extends Component {
    
       render(){
 return(
-    <div id="workOutForm">
+    <div >
    <Addform />
         </div>
         );
