@@ -9,6 +9,10 @@ import NoMatch from './NoMatch';
 import SignUp from './signup';
 import Burger from './Burger';
 import Menu from './Menu';
+import Routines from './routines';
+import Goals from './goals'
+import Addform from './addform'
+
 
 export default class App extends Component {
 
@@ -35,6 +39,8 @@ export default class App extends Component {
         visible: !this.state.visible
     });
   }
+
+
   render(){
   return (
    
@@ -53,7 +59,19 @@ export default class App extends Component {
           <Route path="/Workout">
             <Workout />
           </Route>
+          <Route path="/routines">
+            <Routines />
+          </Route>
           <Route path="/signup">
+            <SignUp />
+          </Route>
+          <Route path="/Burger">
+            <SignUp />
+          </Route>
+          <Route path="/Menu">
+            <SignUp />
+          </Route>
+          <Route path="/main">
             <SignUp />
           </Route>
         </Switch>
@@ -61,7 +79,15 @@ export default class App extends Component {
       <div>
         <Route exact path='/' component={Home} />
         <Route exact path='/Login' component={Login} />
+        <Route path='/signup' component={Login} />
         <Route path='/Workout' component={Workout} />
+        <Route path='/routines' component={Routines} />
+        <Route path='/goals' component={Goals} />
+        <Route path='/Burger' component={Burger} />
+        <Route path='/Menu' component={Menu} />
+        <Route path='/Menu' component={Menu} />
+        <Route path='/addform' component={Addform} />
+
         <Route path='/NoMatch' component={NoMatch} />
       </div>
     </Router>

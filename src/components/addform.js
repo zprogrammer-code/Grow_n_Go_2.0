@@ -1,5 +1,6 @@
 import React, { Component }  from 'react';
 import './style.css'
+import { Link } from 'react-router-dom'
 
 class Addform extends Component{
     render(){
@@ -17,7 +18,7 @@ return (
             <br/><br/>
             <input type="text" name="Reps" placeholder="e.g. 3 reps" id="Calves Form"/>
             <br/><br/>
-            <input type="submit" value="Add that"></input>
+            <Link to="/routines" > <input type="submit" value="Add that"></input> </Link>
           </form>
           <br/><br/>
           <p id="p-muscle">
