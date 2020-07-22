@@ -8,15 +8,15 @@ import './style.css'
 export default class SignUp extends Component {
 
 
- 
 
+ 
    
       render(){
 return(
-    <div>
-    <div id="workOutForm"> 
+    <div id="workOutForm">
+    
             <Login  />
-        </div>
+     
        </div>
         )
       }

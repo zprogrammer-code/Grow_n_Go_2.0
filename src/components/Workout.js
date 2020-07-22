@@ -7,6 +7,15 @@ import './workout.css'
 
 export default class Workout extends Component {
 
+      constructor(props){
+            super(props)
+            this.state = {
+                  name: "",
+                  weight: "",
+                  sets: "",
+                  reps: ""
+            }
+      }
   componentDidMount = () => {
       fetch("http://localhost:3000/workouts", {
             method:"POST",
