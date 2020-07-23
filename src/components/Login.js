@@ -96,8 +96,10 @@ render(){
     </form>
     <form>
           <input
+            autoFocus
             type= "text"
             placeholder="password"
+            value
           />
      </form>
         <Button onClick={e => this.handleSubmit(e)}variant="light" block size="lg" type="submit">
