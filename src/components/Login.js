@@ -11,19 +11,24 @@ export default class Login extends Component {
       username: "",
       password: ""
   };
+
+  this.handleChange = this.handleChange.bind(this);
+  this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-componentDidMount() {
-      this.fetchData();
+  handleChange( event ) {
+    this.setState({
+      [event.target.username]: event.target.value
+    });
   }
 
   handleSubmit(event) {
-    event.preventDefault();
     this.fetchData();
     this.setState({
-        username: "",
-        password: ""  
-       });
+      username: "",
+      password: ""  
+    });
+    event.preventDefault();
  
       }
   
@@ -48,39 +53,7 @@ componentDidMount() {
 }
 
 
-componentDidMount() {
-  this.addUser();
-}
 
-
-handleSignup(event) {
-  event.preventDefault();
-  this.addUser();
-  this.setState({
-      username: "",
-      password: ""  
-     });
-
-    }
-    
-addUser() {  fetch("http://localhost:3000/users", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json"
-  },
-  body: JSON.stringify({
-    username: "username", 
-    password: "password"
-    
-  })
-  })
-  .then(response => response.json())
-  .then(result => {
-    const {token} = result
-    localStorage.setItem("token", token)
-   console.log("success")
-  })
-}
 
 render(){
 
@@ -90,16 +63,19 @@ render(){
        <form>
           <input
             autoFocus
+            name="username"
             type="text"
             placeholder="username"
+            value= {event.target.username}
           />
-    </form>
-    <form>
+
           <input
             autoFocus
+            name="password"
             type= "text"
             placeholder="password"
-            value
+            value={event.target.password}
+            onChange= {this.handleChange}
           />
      </form>
         <Button onClick={e => this.handleSubmit(e)}variant="light" block size="lg" type="submit">

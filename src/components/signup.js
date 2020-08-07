@@ -28,11 +28,28 @@ export default class SignUp extends Component {
       }
 
       handleSubmit( event ) {
+        const {
+          username,
+          password,
+          password_confirmation
+        } = this.state;
+
         console.log("form submitted");
+        axios.post("http://localhost:3000/users", {
+          user: {
+            username: username,
+            password: password,
+            password_confirmation: password_confirmation
+          }
+        },
+          { withCredentials: true }
+        ).then(response => {
+          console.log("registration res", response);
+        }).catch(error => {
+          console.log("registration error", error)
+        })
+
         event.preventDefault();
-        this.setState({
-          [event.target.name]
-        });
       }
 
 
@@ -43,12 +60,20 @@ export default class SignUp extends Component {
   return (
     <>
     <div id="workOutForm">
-    <form>
+    <form onSubmit={this.handleSubmit}>
+      <input
+        type = "username"
+        name = "username"
+        placeholder = "Username"
+        value = {this.state.username}
+        onChange = {this.handleChange}
+    />
       <input
         type = "text"
-        name = "username"
-        placeholder = "username"
-        value = {this.state.username}
+        name = "password"
+        placeholder = "password"
+        value = {this.state.password}
+        onChange = {this.handleChange}
     />
     </form>
         </div>

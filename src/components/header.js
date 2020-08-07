@@ -11,7 +11,7 @@ function Header() {
     <div id="header">
   <h1 id="title">Grow n Go</h1>
   <div id="search">  
-        <Link to="/signup"><h3 id="login" > Login</h3></Link>
+        <Link to="/Login"><h3 id="login" > Login</h3></Link>
         <Link to="/home"><h3 id="logout" > Logout</h3></Link>
         <form>
          <input type="search" name="q" placeholder="Search query"></input>

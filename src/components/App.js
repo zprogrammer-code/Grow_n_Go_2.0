@@ -61,7 +61,7 @@ export default class App extends Component {
           <Route path="/routines">
             <Routines />
           </Route>
-          <Route path="/signup">
+          <Route path="/Login">
             <SignUp />
           </Route>
           <Route path="/Burger">
