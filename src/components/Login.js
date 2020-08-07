@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Button } from "react-bootstrap";
 import "./style.css";
+// import axios from 'axios'; 
 // import { Auth } from "aws-amplify";
 
 export default class Login extends Component {
@@ -23,6 +24,7 @@ export default class Login extends Component {
   }
 
   handleSubmit(event) {
+    console.log("form submitted");
     this.fetchData();
     this.setState({
       username: "",
@@ -52,7 +54,30 @@ export default class Login extends Component {
   }).catch(error => console.error(error.message))
 }
 
+// handleSubmit( event ) {
+//   const {
+//     username,
+//     password,
+//     password_confirmation
+//   } = this.state;
 
+//   console.log("form submitted");
+//   axios.post("http://localhost:3000/users", {
+//     user: {
+//       username: username,
+//       password: password,
+//       password_confirmation: password_confirmation
+//     }
+//   },
+//     { withCredentials: true }
+//   ).then(response => {
+//     console.log("registration res", response);
+//   }).catch(error => {
+//     console.log("registration error", error)
+//   })
+
+//   event.preventDefault();
+// }
 
 
 render(){
@@ -66,7 +91,8 @@ render(){
             name="username"
             type="text"
             placeholder="username"
-            value= {event.target.username}
+            value= {this.state.username}
+            onChange= {this.handleChange}
           />
 
           <input
@@ -74,7 +100,7 @@ render(){
             name="password"
             type= "text"
             placeholder="password"
-            value={event.target.password}
+            value={this.state.password}
             onChange= {this.handleChange}
           />
      </form>

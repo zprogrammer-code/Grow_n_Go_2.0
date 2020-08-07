@@ -10,8 +10,9 @@ import SignUp from './signup';
 import Burger from './Burger';
 import Menu from './Menu';
 import Routines from './routines';
-import Goals from './goals'
-import Addform from './addform'
+import Goals from './goals';
+import Addform from './addform';
+import Authentication from './authentication';
 
 
 export default class App extends Component {
@@ -63,6 +64,9 @@ export default class App extends Component {
           </Route>
           <Route path="/Login">
             <SignUp />
+          </Route>
+          <Route path="/authentication">
+            <Authentication />
           </Route>
           <Route path="/Burger">
             <SignUp />
