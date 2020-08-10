@@ -60,7 +60,8 @@ export default class SignUp extends Component {
       render(){
   return (
     <>
-    <div id="workOutForm">
+    <div className="Login">
+      <h1>Sign Up</h1>
     <form onSubmit={this.handleSubmit}>
       <input
         type = "username"
