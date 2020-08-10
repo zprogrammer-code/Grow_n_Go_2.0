@@ -15,8 +15,9 @@ export default class Authentication extends Component {
     render(){
         return(
             <div>
-                <SignUp/>
                 <Login/>
+                <h3> OR </h3>
+                <SignUp/>
             </div>
         )
     }

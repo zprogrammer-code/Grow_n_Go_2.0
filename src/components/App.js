@@ -13,6 +13,7 @@ import Routines from './routines';
 import Goals from './goals';
 import Addform from './addform';
 import Authentication from './authentication';
+import Main from './main';
 
 
 export default class App extends Component {
@@ -62,32 +63,39 @@ export default class App extends Component {
           <Route path="/routines">
             <Routines />
           </Route>
+          <Route path="/goals">
+            <Goals />
+          </Route>
           <Route path="/Login">
+            <Login />
+          </Route>
+          <Route path="/signup">
             <SignUp />
           </Route>
           <Route path="/authentication">
             <Authentication />
           </Route>
           <Route path="/Burger">
-            <SignUp />
+            <Burger />
           </Route>
           <Route path="/Menu">
-            <SignUp />
+            <Menu />
+          </Route>
+          <Route path="/addform">
+            <Addform />
           </Route>
           <Route path="/main">
-            <SignUp />
+            <Main />
           </Route>
         </Switch>
       </div>
       <div>
         <Route exact path='/' component={Home} />
-        <Route exact path='/Login' component={Login} />
-        <Route path='/signup' component={Login} />
+   
         <Route path='/Workout' component={Workout} />
         <Route path='/routines' component={Routines} />
         <Route path='/goals' component={Goals} />
         <Route path='/Burger' component={Burger} />
-        <Route path='/Menu' component={Menu} />
         <Route path='/Menu' component={Menu} />
         <Route path='/addform' component={Addform} />
 

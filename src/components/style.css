@@ -282,23 +282,81 @@ transform: rotate(120deg)  rotate(0);
         padding: 40px;
     }
     
+
+    .SignUp {
+     
+        color: white;
+        text-shadow: 0 0 3px black;
+        /* float: center; */
+        padding: 0px;
+        margin: 1px;
+        font-size: xx-large;
+    
+        
+          background-color:white;
+    
+          color: whitesmoke;
+          font-weight:bold;
+          font-size: xx-large;
+          width: 80%;
+          height: 300px;
+          margin: 20px auto 40px;
+          height: 35%;
+          width: 50%;
+          overflow: auto;
+          margin: auto;
+          /* position: absolute; */
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          border-radius: 15px;
+          padding: 15px;
+      
+        }  
+    
+    
     .Login {
     color: white;
     text-shadow: 0 0 3px black;
-    float: center;
+    /* float: center; */
     padding: 0px;
     margin: 1px;
     font-size: xx-large;
+
+    
+      background-color:white;
+
+      color: whitesmoke;
+      font-weight:bold;
+      font-size: xx-large;
+      width: 80%;
+      height: 300px;
+      margin: 20px auto 40px;
+      height: 35%;
+      width: 50%;
+      overflow: auto;
+      margin: auto;
+      /* position: absolute; */
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      border-radius: 15px;
+      padding: 15px;
+  
     }  
 
-    .Login form {
+    /* .Login form {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: flex-end;
         width: 50vw;
         height: 21vh;
-    }
+
+        
+    } */
 
     .Login > form > div {
         display: flex;
@@ -323,14 +381,6 @@ transform: rotate(120deg)  rotate(0);
         opacity: 0.7;
     }
 
-    #workOutForm {
-        height: 100vh;
-        width: 100vw;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    
     .Center-Container {
 
         background-color: transparent;
