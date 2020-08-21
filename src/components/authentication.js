@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Login from "./Login.js";
-import SignUp from "./signup.js";
+// import SignUp from "./signup.js";
 import "./style.css";
 
 export default class Authentication extends Component {
@@ -14,11 +14,9 @@ export default class Authentication extends Component {
 
     render(){
         return(
-            <div>
+            
                 <Login/>
-                <h3> OR </h3>
-                <SignUp/>
-            </div>
+
         )
     }
 }

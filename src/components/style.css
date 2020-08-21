@@ -316,54 +316,120 @@ transform: rotate(120deg)  rotate(0);
         }  
     
     
-    .Login {
-    color: white;
+    .Login-container {
+    /* color: white; */
     text-shadow: 0 0 3px black;
-    /* float: center; */
-    padding: 0px;
-    margin: 1px;
-    font-size: xx-large;
-
-    
-      background-color:white;
-
+      background-color: transparent;
       color: whitesmoke;
       font-weight:bold;
-      font-size: xx-large;
-      width: 80%;
-      height: 300px;
-      margin: 20px auto 40px;
-      height: 35%;
+       /* width: 100vw;
+      height: 100vh; */
+      margin: 40px auto 300px;
+      height: 75%;
       width: 50%;
       overflow: auto;
-      margin: auto;
-      /* position: absolute; */
+      position: absolute;
       top: 0;
       left: 0;
-      bottom: 0;
+      bottom: 50px;
       right: 0;
       border-radius: 15px;
       padding: 15px;
   
     }  
 
-    /* .Login form {
+    .card{
+      height: 370px;
+      margin-top: auto;
+      margin-bottom: auto;
+      width: 550px;
+      background-color: rgba(0,0,0,0.5) !important;
+      font-size: xx-large;
+      }
+    
+
+    .social_icon span{
+      font-size: 60px;
+      margin-left: 10px;
+      color: #FFC312;
+      }
+      
+    .social_icon span:hover{
+      color: white;
+      cursor: pointer;
+     }
+        
+    .card-header h3{
+      color: white;
+     }
+
+    .social_icon{
+      position: absolute;
+      right: 20px;
+      top: -45px;
+     }
+
+    .input-group-prepend span{
+      width: 50px;
+      background-color: #FFC312;
+      color: black;
+      border:0 !important;
+     }
+
+    input:focus{
+      outline: 0 0 0 0  !important;
+      box-shadow: 0 0 0 0 !important;
+              
+              }
+
+          .remember{
+              color: white;
+                }
+
+    .remember input{
+        width: 20px;
+        height: 20px;
+        margin-left: 15px;
+        margin-right: 5px;
+      }
+
+      .login_btn{
+        color: black;
+        background-color: #FFC312;
+        width: 100px;
+        }
+
+        .login_btn:hover{
+          color: black;
+          background-color: white;
+          }
+          
+          .links{
+            color: white;
+            }
+
+            .links a{
+              margin-left: 4px;
+              }
+            
+
+    /* .Login-container form {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: flex-end;
-        width: 50vw;
-        height: 21vh;
+        width: 30vw;
+        height: 18vh;
 
         
     } */
 
-    .Login > form > div {
+    /* .Login-container > form > div {
         display: flex;
         justify-content: space-between;
         align-items: flex-end;
         width: 100%;
-    }
+    } */
 
     .Login > form > button {
         padding: 0.3rem 1.2rem;
@@ -417,7 +483,7 @@ transform: rotate(120deg)  rotate(0);
 
     #Current h3 {
         color: green;
-    }
+    }r
     #Recent h3 {
         color: green;
     }

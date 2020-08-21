@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { Button } from "react-bootstrap";
 import './style.css';
-import axios from 'axios';
+// import axios from 'axios';
 
 
 
@@ -28,58 +29,82 @@ export default class SignUp extends Component {
           });
       }
 
-      handleSubmit( event ) {
-        const {
-          username,
-          password,
-          password_confirmation
-        } = this.state;
-
-        console.log("form submitted");
-        axios.post("http://localhost:3000/users", {
-          user: {
-            username: username,
-            password: password,
-            password_confirmation: password_confirmation
-          }
-        },
-          { withCredentials: true }
-        ).then(response => {
-          console.log("registration res", response);
-        }).catch(error => {
-          console.log("registration error", error)
-        })
-
-        event.preventDefault();
-      }
-
-
       
- 
-   
+      
+      handleSubmit(event) {
+        
+        fetch("http://localhost:3000/users", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            username: "username", 
+            password: "password" 
+          }),
+          withCredentials: true})
+          .then(response => response.json())
+          .then(result => {
+            const {token} = result
+            localStorage.setItem("token", token)
+          }) 
+          .catch(error => console.error(error.message))
+          
+          console.log("form submitted", ) 
+          event.preventDefault();
+          this.setState({
+            username: this.state.name,
+            password: this.state.password 
+        });
+        console.log(this.state)
+      }
+        //   createUser(){
+        //     const {
+          //       username,
+          //       password,
+          //       password_confirmation
+          //     } = this.state;
+          
+          //   axios.post("http://localhost:3000/users", {
+            //     user: {
+              //       username: username,
+              //       password: password,
+              //       password_confirmation: password_confirmation
+              //     }
+              //   },
+              //     { withCredentials: true }
+              //   ).then(response => {
+                //     console.log("registration res", response);
+                //   }).catch(error => {
+                  //     console.log("registration error", error);
+                  //   })
       render(){
-  return (
+        return (
     <>
     <div className="SignUp">
       <h1>Sign Up</h1>
-    <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit}>                                                                                         
       <input
         type = "username"
         name = "username"
         placeholder = "Username"
-        value = {this.state.username}
+        value = {this.state.name}
         onChange = {this.handleChange}
     />
       <input
         type = "text"
         name = "password"
-        placeholder = "password"
-        value = {this.state.password}
+        placeholder = "Password"
+        value = {this.state.name}
         onChange = {this.handleChange}
     />
     </form>
+        <Button onClick={e => this.handleSubmit(e)}variant="light" block size="lg" type="submit">
+          Sign Up
+        </Button>
         </div>
         </>
         )
       }
     }
+  
