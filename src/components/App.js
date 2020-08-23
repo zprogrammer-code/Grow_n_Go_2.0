@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import {   BrowserRouter as Router,
+import {   BrowserRouter,
   Switch,
   Route } from 'react-router-dom';
 import Home from './home';
+import SignUp from './signup';
 import Login from "./Login";
+import Dashboard from './dashboard';
 import Workout from './Workout';
 import NoMatch from './NoMatch';
-import SignUp from './signup';
 import Burger from './Burger';
 import Menu from './Menu';
 import Routines from './routines';
@@ -18,92 +19,134 @@ import Main from './main';
 
 export default class App extends Component {
 
-  constructor(props, context){
-    super(props, context);
+  constructor(props){
+    super(props);
    
     this.state = {
-      visible: false
+      loggedInStatus: "NOT_LOGGED_IN",
+      user: {}
+      // visible: false
     };
-    
-    this.handleMouseDown = this.handleMouseDown.bind(this);
-    this.toggleMenu = this.toggleMenu.bind(this);
+
+    this.handleLogin = this.handleLogin.bind(this);
+    this.handleSuccessfulAuth = this.handleSuccessfulAuth.bind(this);
   }
-   
-  handleMouseDown(e) {
-    this.toggleMenu();
- 
-    console.log("clicked");
-    // e.stopPropagation();
-  }
-  
-  toggleMenu() {
+
+  handleLogin(data) {
     this.setState({
-        visible: !this.state.visible
+      loggedInStatus: "LOGGED_IN",
+      user: data
     });
   }
 
+  handleSuccessfulAuth(data) {
+    // TODO update parent component
+    this.props.handleLogin(data);
+    this.props.history.push("/dashboard");
+  }
+
+  // props, context
   render(){
   return (
    
-<div>
-<Router>
-  <Burger handleMouseDown={this.handleMouseDown}/>
-
-  <Menu  handleMouseDown={this.handleMouseDown}
-    menuVisibility={this.state.visible}
-  />
-      <div>
-        <Switch>
-          <Route exact path="/home">
-            <Home />
-          </Route>
-          <Route path="/Workout">
-            <Workout />
-          </Route>
-          <Route path="/routines">
-            <Routines />
-          </Route>
-          <Route path="/goals">
-            <Goals />
-          </Route>
-          <Route path="/Login">
-            <Login />
-          </Route>
-          <Route path="/signup">
-            <SignUp />
-          </Route>
-          <Route path="/authentication">
-            <Authentication />
-          </Route>
-          <Route path="/Burger">
-            <Burger />
-          </Route>
-          <Route path="/Menu">
-            <Menu />
-          </Route>
-          <Route path="/addform">
-            <Addform />
-          </Route>
-          <Route path="/main">
-            <Main />
-          </Route>
-        </Switch>
-      </div>
-      <div>
-        <Route exact path='/' component={Home} />
-   
-        <Route path='/Workout' component={Workout} />
-        <Route path='/routines' component={Routines} />
-        <Route path='/goals' component={Goals} />
-        <Route path='/Burger' component={Burger} />
-        <Route path='/Menu' component={Menu} />
-        <Route path='/addform' component={Addform} />
-
-        <Route path='/NoMatch' component={NoMatch} />
-      </div>
-    </Router>
-
+<div className= "app">
+  <BrowserRouter>
+    <Switch>
+      < Route
+      exact
+      path={"/"}
+      render={props => (
+        <Home { ... props} loggedInStatus={this.state.loggedInStatus} /> 
+        )}
+      />
+      < Route
+       exact 
+       path={"/dashboard"}
+       render={props => (
+        < Dashboard { ... props} loggedInStatus={this.state.loggedInStatus} /> 
+        )}
+      />
+      < Route 
+       exact 
+       path={"/Workout"}
+       render={props => (
+        < Workout { ... props} />
+          )}
+          />
+      <Route 
+       exact
+       path={"/routines"}
+       render={props => (
+        < Routines { ... props} />
+          )}
+          />
+      <Route 
+       exact
+       path={"/goals"}
+       render={props => (
+        < Goals  { ... props} />
+          )}
+          />
+      < Route 
+        exact
+        path={"/Login"}
+        render={props => (
+          < Login { ... props} />
+            )}
+            />
+      < Route
+        exact
+        path={"/signup"}
+        render={props => (
+          < SignUp { ... props} />
+            )}
+            />
+      < Route
+        exact
+        path={"/authentication"}
+        render={props => (
+          < Authentication { ... props} handleLogin={this.handleLogin  } loggedInStatus={this.state.loggedInStatus} />
+            )}
+            />
+      < Route
+        exact
+        path={"/Burger"}
+        render={props => (
+          < Burger { ... props} />
+            )}
+            />
+      < Route
+        exact
+        path={"/Menu"}
+        render={props => (
+          < Menu { ... props} />
+            )}
+            />
+      < Route
+        exact
+        path={"/addform"}
+        render={props => (
+          <Addform { ... props} />
+            )}
+            />
+      < Route
+        exact
+        path={"/main"}
+        render={props => (
+        < Main { ... props} />
+          )}
+          />
+      < Route
+        exact
+        path={"/NoMatch"}
+        render={props => (
+        < NoMatch { ... props} />
+          )}
+          />
+    </Switch>
+    </BrowserRouter>
     </div>
+   
 
 
   );

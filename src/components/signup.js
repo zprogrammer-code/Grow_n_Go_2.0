@@ -42,42 +42,55 @@ export default class SignUp extends Component {
             username: "username", 
             password: "password" 
           }),
-          withCredentials: true})
+          withCredentials: true}
+          )
           .then(response => response.json())
-          .then(result => {
+          .then(
+            result => {
             const {token} = result
             localStorage.setItem("token", token)
+            console.log("success", result)
+               if (result.status === 'created') {
+                //  result.data.status
+                this.props.history.push("/dashboard");
+                // this.props.handleSuccessfulAuth(result.data);
+              }
           }) 
           .catch(error => console.error(error.message))
           
-          console.log("form submitted", ) 
+          console.log("form submitted" ) 
           event.preventDefault();
           this.setState({
-            username: this.state.name,
+            username: this.state.username,
             password: this.state.password 
         });
         console.log(this.state)
       }
-        //   createUser(){
-        //     const {
-          //       username,
-          //       password,
-          //       password_confirmation
-          //     } = this.state;
+            // const {
+            //     username,
+            //     password,
+            //     password_confirmation
+            //   } = this.state;
           
-          //   axios.post("http://localhost:3000/users", {
+            // axios.post("http://localhost:3000/users", {
             //     user: {
-              //       username: username,
-              //       password: password,
-              //       password_confirmation: password_confirmation
-              //     }
-              //   },
-              //     { withCredentials: true }
-              //   ).then(response => {
-                //     console.log("registration res", response);
-                //   }).catch(error => {
-                  //     console.log("registration error", error);
-                  //   })
+            //         username: username,
+            //         password: password,
+            //         password_confirmation: password_confirmation
+            //       }
+            //     },
+            //       { withCredentials: true }
+            //     )
+            //   .then(response => {
+            //     console.log("registration res", response);
+            //     // if (response.data.status === 'created') {
+            //     // this.props.handleSuccessfulAuth(response.data)
+            //     // }
+            //      })
+            //       .catch(error => {
+            //           console.log("registration error", error);
+            //         });
+            //       }
       render(){
         return (
     <>

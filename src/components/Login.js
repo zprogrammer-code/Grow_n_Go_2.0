@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom';
 // import { Button } from "react-bootstrap";
 import "./style.css";
 // import axios from 'axios'; 
@@ -49,6 +50,11 @@ y
         const {token} = result
         localStorage.setItem("token", token)
         console.log("success", result)
+        if (result.status === 'created') {
+          //  result.data.status
+          this.props.history.push("/dashboard");
+          // this.props.handleSuccessfulAuth(result.data);
+        }
      
       }).catch(error => console.error(error.message))
       
@@ -74,10 +80,9 @@ render(){
 			          </div>
                 <div className="card-body">
                     <form>
-                        {/* <label any="username">Username:</label> */}
                         <div className="input-group form-group">
 					                  <div className="input-group-prepend">
-							                  <span className="input-group-text"><i class="fas fa-user"></i></span>
+							                  <span className="input-group-text"><i className="fas fa-user"></i></span>
 						                </div>
                                 <input
                                   type="text"
@@ -90,8 +95,8 @@ render(){
                                 />
                             </div>
                         <div className="input-group form-group">
-						                <div class="input-group-prepend">
-							                  <span class="input-group-text"><i class="fas fa-user"></i></span>
+						                <div className="input-group-prepend">
+							                  <span className="input-group-text"><i className="fas fa-user"></i></span>
 						                </div>
                                 <input
                                  type= "password"
@@ -105,17 +110,17 @@ render(){
                           <label> Remember Me</label>
 						                    <input type="checkbox"/>
 					             </div>
-                <div class="form-group">
+                <div className="form-group">
 						      <input onClick={e => this.handleSubmit(e)}variant="light" block size="lg" type="submit" value="Login" className="btn float-right login_btn"/>
               </div>
           </form>
       </div>
-      <div class="card-footer">
-				<div class="d-flex justify-content-center links">
-					Don't have an account?<a href="#">Sign Up</a>
+      <div className="card-footer">
+				<div className="d-flex justify-content-center links">
+					Don't have an account?  <Link to="/signup"><h3 id="login"> Sign Up </h3></Link>
 				</div>
-				<div class="d-flex justify-content-center">
-					<a href="#">Forgot your password?</a>
+				<div className="d-flex justify-content-center">
+        <Link to="/signup"><h3 id="login" > Forgot your password? </h3></Link>
 				</div>
 			</div>
         </div>

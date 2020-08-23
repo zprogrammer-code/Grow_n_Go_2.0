@@ -321,7 +321,7 @@ transform: rotate(120deg)  rotate(0);
     text-shadow: 0 0 3px black;
       background-color: transparent;
       color: whitesmoke;
-      font-weight:bold;
+      /* font-weight:bold; */
        /* width: 100vw;
       height: 100vh; */
       margin: 40px auto 300px;
