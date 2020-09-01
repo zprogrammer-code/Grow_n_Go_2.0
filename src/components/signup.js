@@ -52,7 +52,7 @@ export default class SignUp extends Component {
             console.log("success", result)
                if (result.status === 'created') {
                 //  result.data.status
-                this.props.history.push("/dashboard");
+                this.props.history.push("/authentication");
                 // this.props.handleSuccessfulAuth(result.data);
               }
           }) 

@@ -32,6 +32,31 @@ export default class App extends Component {
     this.handleSuccessfulAuth = this.handleSuccessfulAuth.bind(this);
   }
 
+  checkLoggedInStatus(){
+    fetch("http://localhost:3000/logged_in",
+     {withCredentials: true})
+     .then(response => response.json())
+     .then(result => {
+       if (result.data.logged_in && this.state.loggedInStatus === " NOT_LOGGED_IN ") {
+       this.settate({
+         loggedInStatus: " LOGGED_IN ",
+         user: result.data.user
+       })
+     } else if (!result.data.logged_in & this.state.loggedInStatus === " LOGGED_IN ") {
+     this.setState({
+       loggedInStatus: " NOT_LOGGED_IN",
+       user: {}
+     })
+    }
+  }
+     )
+     .catch(error => {console.log("error biatch")})
+  }
+
+  componentDidMount() {
+    this.checkLoggedInStatus( );
+  }
+
   handleLogin(data) {
     this.setState({
       loggedInStatus: "LOGGED_IN",
@@ -57,6 +82,13 @@ export default class App extends Component {
       path={"/"}
       render={props => (
         <Home { ... props} loggedInStatus={this.state.loggedInStatus} /> 
+        )}
+      />
+      < Route
+      exact
+      path={"/Menu"}
+      render={props => (
+        <Menu { ... props} loggedInStatus={this.state.loggedInStatus} /> 
         )}
       />
       < Route

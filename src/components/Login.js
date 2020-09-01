@@ -50,7 +50,9 @@ y
         const {token} = result
         localStorage.setItem("token", token)
         console.log("success", result)
-        if (result.status === 'created') {
+        if (result.status === 'created') 
+        {
+          console.log(result.data.status)
           //  result.data.status
           this.props.history.push("/dashboard");
           // this.props.handleSuccessfulAuth(result.data);
