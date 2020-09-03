@@ -70,6 +70,23 @@ export default class App extends Component {
     this.props.history.push("/dashboard");
   }
 
+  useEffect(() => {
+    const token = localStorage.getItem("token")
+    if(token){
+      fetch("http://localhost:3000/auto_login", {
+        headers: {
+          Authorization: `Bearer${token}`
+        }
+      })
+      .then(response => response.json())
+      .then( data => {
+        setUser(data);
+        console.log(data);
+      })
+    }
+  }, [])
+
+
   // props, context
   render(){
   return (

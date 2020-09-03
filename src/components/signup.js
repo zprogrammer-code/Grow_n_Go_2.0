@@ -36,19 +36,21 @@ export default class SignUp extends Component {
         fetch("http://localhost:3000/users", {
           method: "POST",
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "Accept": "application/json"
           },
           body: JSON.stringify({
-            username: "username", 
-            password: "password" 
+            username: username, 
+            password: password 
           }),
           withCredentials: true}
           )
           .then(response => response.json())
           .then(
-            result => {
+            data => {
             const {token} = result
-            localStorage.setItem("token", token)
+            localStorage.setItem("token", data.jwt)
+            this.props.handleLogin(data.username)
             console.log("success", result)
                if (result.status === 'created') {
                 //  result.data.status
