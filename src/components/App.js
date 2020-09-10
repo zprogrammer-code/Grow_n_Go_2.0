@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 import {   BrowserRouter,
   Switch,
@@ -32,36 +33,45 @@ export default class App extends Component {
     this.handleSuccessfulAuth = this.handleSuccessfulAuth.bind(this);
   }
 
-  checkLoggedInStatus(){
-    fetch("http://localhost:3000/logged_in",
-     {withCredentials: true})
-     .then(response => response.json())
-     .then(result => {
-       if (result.data.logged_in && this.state.loggedInStatus === " NOT_LOGGED_IN ") {
-       this.settate({
-         loggedInStatus: " LOGGED_IN ",
-         user: result.data.user
-       })
-     } else if (!result.data.logged_in & this.state.loggedInStatus === " LOGGED_IN ") {
-     this.setState({
-       loggedInStatus: " NOT_LOGGED_IN",
-       user: {}
-     })
-    }
-  }
-     )
-     .catch(error => {console.log("error biatch")})
-  }
+  // checkLoggedInStatus(){
+  //   fetch("http://localhost:3000/users",
+  //    {withCredentials: true})
+  //    .then(response => response.json())
+  //    .then(result => {
+  //      if (result.data.logged_in && this.state.loggedInStatus === " NOT_LOGGED_IN ") {
+  //      this.setState({
+  //        loggedInStatus: " LOGGED_IN ",
+  //        user: result.data.user
+  //      })
+  //    } else if (!result.data.logged_in & this.state.loggedInStatus === " LOGGED_IN ") {
+  //    this.setState({
+  //      loggedInStatus: " NOT_LOGGED_IN",
+  //      user: {}
+  //    })
+  //   }
+  // }
+  //    )
+  //    .catch(error => {console.log("error biatch")})
+  // }
 
-  componentDidMount() {
-    this.checkLoggedInStatus( );
-  }
+  // componentDidMount() {
+  //   this.checkLoggedInStatus( );
+  // }
 
   handleLogin(data) {
     this.setState({
+      isLoggedIn: true,
       loggedInStatus: "LOGGED_IN",
-      user: data
+      user: data.user
     });
+  }
+
+  handleLogout(data) {
+    this.setState({
+      isLoggedIn: false,
+      loggedInStatus: "IS NOT LOGGED_IN",
+      user: {}
+    })
   }
 
   handleSuccessfulAuth(data) {
@@ -70,21 +80,22 @@ export default class App extends Component {
     this.props.history.push("/dashboard");
   }
 
-  useEffect(() => {
-    const token = localStorage.getItem("token")
-    if(token){
-      fetch("http://localhost:3000/auto_login", {
-        headers: {
-          Authorization: `Bearer${token}`
-        }
-      })
-      .then(response => response.json())
-      .then( data => {
-        setUser(data);
-        console.log(data);
-      })
-    }
-  }, [])
+  // useEffect = () => {
+  //   const token = localStorage.getItem("token")
+  //   if(token){
+  //     fetch("http://localhost:3000/auto_login", {
+  //       headers: {
+  //         Authorization: `Bearer${token}`
+  //       }
+  //     })
+  //     .then(response => response.json())
+  //     .then( data => {
+  //       this.useState(data);
+  //       console.log(data);
+  //     });
+  //   }
+  // };
+
 
 
   // props, context

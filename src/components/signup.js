@@ -13,10 +13,7 @@ export default class SignUp extends Component {
 
         this.state = {
         username: "",
-        password: "",
-        password_confirmation: "",
-        registrationErrors: ""
-
+        password: ""
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -34,27 +31,28 @@ export default class SignUp extends Component {
       handleSubmit(event) {
         
         fetch("http://localhost:3000/users", {
+          
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            "Accept": "application/json"
+       s
           },
           body: JSON.stringify({
-            username: username, 
-            password: password 
+            username: "username", 
+            password: "password" 
           }),
-          withCredentials: true}
-          )
+          withCredentials: true})
           .then(response => response.json())
           .then(
-            data => {
+            result => {
+              console.log(result)
             const {token} = result
-            localStorage.setItem("token", data.jwt)
-            this.props.handleLogin(data.username)
+            localStorage.setItem("token", token)
+            this.props.handleLogin(result.username)
             console.log("success", result)
                if (result.status === 'created') {
                 //  result.data.status
-                this.props.history.push("/authentication");
+                this.props.history.push("/dashboard");
                 // this.props.handleSuccessfulAuth(result.data);
               }
           }) 
@@ -79,20 +77,21 @@ export default class SignUp extends Component {
             //         username: username,
             //         password: password,
             //         password_confirmation: password_confirmation
-            //       }
-            //     },
-            //       { withCredentials: true }
+            //       },
+            //        withCredentials: true 
+            //     }
             //     )
             //   .then(response => {
             //     console.log("registration res", response);
-            //     // if (response.data.status === 'created') {
-            //     // this.props.handleSuccessfulAuth(response.data)
-            //     // }
+            //     if (response.data.status === 'created') {
+            //     this.props.handleSuccessfulAuth(response.data)
+            //     }
             //      })
             //       .catch(error => {
             //           console.log("registration error", error);
             //         });
             //       }
+
       render(){
         return (
     <>
@@ -107,7 +106,7 @@ export default class SignUp extends Component {
         onChange = {this.handleChange}
     />
       <input
-        type = "text"
+        type = "password"
         name = "password"
         placeholder = "Password"
         value = {this.state.name}
